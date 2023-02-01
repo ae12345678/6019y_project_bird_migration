@@ -1,2 +1,2 @@
 #Script notes
-scripts are to be stored in this folder, referencing data in the data folder.
+scripts are to be stored in this folder, referencing data in the data folder's subfolders.
