@@ -15,3 +15,10 @@ for (i in 1:(nrow(species_strat))){
     filter (AOU == species_strat[i,2])%>%
     lm(formula=Year~SpeciesTotal)})
 }
+#testing small scale iteration w/ name changing variable
+for (i in 1:10){
+  try({assign(paste("v",i,sep=""),bird_strat%>%                   
+                filter (AOU == species_strat[i,2])%>%
+                lm(formula=Year~SpeciesTotal))})
+}
+
