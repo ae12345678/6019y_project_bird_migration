@@ -21,4 +21,7 @@ for (i in 1:10){
                 filter (AOU == species_strat[i,2])%>%
                 lm(formula=Year~SpeciesTotal))})
 }
-
+#notes
+#v1tidy <- broom::tidy(v1)
+#v1tidy[2,5]
+#gets the pvalue
