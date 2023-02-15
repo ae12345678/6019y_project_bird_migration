@@ -25,3 +25,15 @@ for (i in 1:10){
 #v1tidy <- broom::tidy(v1)
 #v1tidy[2,5]
 #gets the pvalue
+
+#trying to make something work with if else statements
+for (i in 1:10){
+  try({s<-bird_strat%>%                   #try lets us skip the lots of 0 cases errors
+    filter (AOU == species_strat[i,2])%>%
+    lm(formula=Year~SpeciesTotal)
+  stidy <- broom::tidy(s)
+  if (stidy[2,5] >= 0.05){
+    print("bad")}else{print("good")}
+  })
+}
+
