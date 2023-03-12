@@ -13,3 +13,11 @@ f_sampling <- file.path("data/ebird/sampling_us_filtered.txt")
 
 if (!file.exists(f_ebd)) {
   auk_filter(ebird_filter, file = f_ebd, file_sampling = f_sampling)}
+
+cols <- c("latitude", "longitude",
+          "group identifier", "sampling event identifier", 
+          "scientific name", "observation count",
+          "observer_id", "state code")
+f_select <- "data/ebird/ebd_smaller.txt"
+selected <- auk_ebd(f_ebd) %>% 
+  auk_select(select = cols, file = f_select)
