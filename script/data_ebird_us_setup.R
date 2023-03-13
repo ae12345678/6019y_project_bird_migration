@@ -24,9 +24,8 @@ selected <- auk_ebd(f_ebd) %>%
 
 genus_species<-data.frame(matrix(ncol=2))
 for (i in 1:nrow(species_strat)){
-genus <- species_strat[i,8]
-species <- species_strat[i,9]
-genus_species_name <- (paste(genus,species,sep=" "))
-genus_species[nrow(genus_species)+1,1]=species_strat[i,2]
-genus_species[nrow(genus_species),2]=genus_species_name
+genus_species_name <- (paste(species_strat[i,8],species_strat[i,9],sep=" "))
+genus_species[i,1]=species_strat[i,2]
+genus_species[i,2]=genus_species_name
 }
+
