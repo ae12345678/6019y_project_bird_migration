@@ -21,3 +21,12 @@ cols <- c("latitude", "longitude",
 f_select <- "data/ebird/ebd_smaller.txt"
 selected <- auk_ebd(f_ebd) %>% 
   auk_select(select = cols, file = f_select)
+
+genus_species<-data.frame(matrix(ncol=2))
+for (i in 1:nrow(species_strat)){
+genus <- species_strat[i,8]
+species <- species_strat[i,9]
+genus_species_name <- (paste(genus,species,sep=" "))
+genus_species[nrow(genus_species)+1,1]=species_strat[i,2]
+genus_species[nrow(genus_species),2]=genus_species_name
+}
