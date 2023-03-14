@@ -1,2 +1,3 @@
 #Data notes
 some data, will not be made available on github, due to size or terms of use of the data.
+data folders that cannot be seen are "ebird" and "nabbs". due to how the code is done, these need to contain the appropriate data, with "ebird" containing the "ebd_US_relJan_2023.txt" dataset, and the "nabbs" folder containing the "2022Release_Nor.zip" unpacked.

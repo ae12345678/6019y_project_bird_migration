@@ -1,2 +1,4 @@
 #Script notes
 scripts are to be stored in this folder, referencing data in the data folder's subfolders.
+script titles are formatted "data_aaa_bbb". "aaa" referencing the data predominantly used, and "bbb" referencing purpose.
+the depricated folder contains scripts that no longer are needed for the rest of the data.
