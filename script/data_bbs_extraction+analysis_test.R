@@ -55,7 +55,7 @@ for (i in 1:10){
 
 
 #large scale trialing of final automation (this crashed for me at 4GB ram.)
-sig_dir_bbs_test<-data.frame(matrix(ncol=2))
+sig_dir_bbs_test<-data.frame(matrix(ncol=52))
 for (i in 1:nrow(species_strat)){
   try({s<-bird_strat%>%                   #try lets us skip the lots of 0 cases errors
     filter (AOU == species_strat[i,2])%>%
