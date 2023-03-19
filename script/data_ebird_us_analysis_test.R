@@ -27,3 +27,6 @@ for (i in 1:nrow(genus_species)){
   }
   print("sp. done")}
 
+bbs_ebird_data <- sig_dir_bbs_test%>%
+  filter(!is.na(X1),
+         !is.na(X2))
