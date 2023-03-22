@@ -70,3 +70,16 @@ for (i in 1:nrow(species_strat)){
     }
   })    #NAs in col2 seem to mean not enough data in the model.
 }
+
+#adapting code to a new method
+for (i in 1:nrow(species_strat)){
+  try({s<-bird_strat%>%                   #try lets us skip the lots of 0 cases errors
+    filter (AOU == species_strat[i,2])%>%
+    lm(formula=Year~SpeciesTotal)#linear model
+  stidy <- broom::tidy(s)
+  sig_dir_bbs_test[i,1]=species_strat[i,2]
+  if (stidy[2,2]<0){sig_dir_bbs_test[i,2]=-stidy[2,2]}else{
+    sig_dir_bbs_test[i,2]=-stidy[2,2]
+  }})}
+std_error=c("c")
+sig_dir_bbs_test <- cbind(sig_dir_bbs_test,std_error)
