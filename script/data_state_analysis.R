@@ -21,5 +21,6 @@ for (i in 1:50){
   state_area_analysis[i,4]=sum(o$NA..2)
   p<-filter(state_GAP_protected,state==state.abb[i])
   state_area_analysis[i,5]=sum(p$GAP_protected_percent)
+  state_area_analysis[i,3]=sqrt(sum((as.numeric(bbs_ebird_data$std_error)*bbs_ebird_data[,i+2]))^2)
 }
 
