@@ -1,6 +1,7 @@
 library(auk)
 library(tidyverse)
 library(xlsx)
+library(lmtest)
 state_area_analysis<-data.frame(matrix(ncol=10))#creates dataframe for state analysis
 state_urban_pop <-read.xlsx(file.path("data/pop-urban-pct-historical.xls"),sheetName = "States",colIndex = c(2,15,16))
 state_GAP_protected <- read.csv(file.path("data/data_state_GAP_protected.csv"))
@@ -24,3 +25,7 @@ for (i in 1:50){
   state_area_analysis[i,3]=sqrt(sum((as.numeric(bbs_ebird_data$std_error)*bbs_ebird_data[,i+2]))^2)
 }
 
+ls_gap_trend <- lm(data=state_area_analysis, formula = X2~X5)
+plot(fitted(ls_gap_trend), resid(ls_gap_trend), xlab='Fitted Values', ylab='Residuals')
+bptest(ls_gap_trend)#doesnt suggest heteroscedasticity, still going to see how weighting goes
+ls_gap_trend_w <- lm(data=state_area_analysis, formula = X2~X5,weights = 1/X3)
