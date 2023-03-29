@@ -29,3 +29,10 @@ ls_gap_trend <- lm(data=state_area_analysis, formula = X2~X5)
 plot(fitted(ls_gap_trend), resid(ls_gap_trend), xlab='Fitted Values', ylab='Residuals')
 bptest(ls_gap_trend)#doesnt suggest heteroscedasticity, still going to see how weighting goes
 ls_gap_trend_w <- lm(data=state_area_analysis, formula = X2~X5,weights = 1/X3)
+
+ls_urban_trend <- lm(data=state_area_analysis, formula = X2~X4)
+plot(fitted(ls_urban_trend), resid(ls_urban_trend), xlab='Fitted Values', ylab='Residuals')
+bptest(ls_urban_trend)
+ls_urban_trend_w <- lm(data=state_area_analysis, formula = X2~X4,weights = 1/X3)#greater p than without weighting
+plot(fitted(ls_urban_trend_w), resid(ls_urban_trend_w), xlab='Fitted Values', ylab='Residuals')
+bptest(ls_urban_trend_w)
