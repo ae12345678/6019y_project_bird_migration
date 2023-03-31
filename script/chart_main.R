@@ -8,3 +8,7 @@ state_area_analysis%>%#gap protected and trend
 state_area_analysis%>%#gap protected and urban
   ggplot(aes(x=X5,y=X4))+
   geom_point()
+state_area_analysis%>%
+  ggplot(aes(y=X2,x=1))+
+  geom_boxplot(width=0.25)+
+  geom_jitter(width=0.125)
